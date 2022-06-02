@@ -2,8 +2,8 @@
 
 # prereqs
 
-setup aws account and configure credentials or assume role
-make sure terraform is installed
+setup aws account and configure credentials or assume role <br />
+make sure terraform is installed <br />
 
 # clone repo to get the terraform files
 git clone https://github.com/todori438/quickbase-demo.git
