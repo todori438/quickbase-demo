@@ -52,8 +52,8 @@ resource "aws_instance" "jenkins" {
     sudo yum install amazon-linux-extras install docker git -y
     sudo service docker start
     sudo usermod -a -G docker ec2-user
-    sudo git clone https://github.com/todori438/quickbase-demo.git /tmp/deploy
-    sudo docker build /tmp/deploy/jenkins -t jenkins
+    sudo git clone https://github.com/todori438/quickbase-demo.git /var/jenkins
+    sudo docker build /var/jenkins -t jenkins
     sudo docker run --detach --publish=8080:80 --name=jenkins jenkins   
   EOF
 
