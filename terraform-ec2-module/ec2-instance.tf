@@ -16,13 +16,18 @@ module "ec2_sg" {
   description = "Security group for ec2_sg"
   vpc_id      = data.aws_vpc.default.id
 
-  ingress_cidr_blocks      = ["0.0.0.0/0"]
+  ingress_cidr_blocks      = ["79.100.158.144/32"]
   ingress_with_cidr_blocks = [
     {
       from_port   = 5001
       to_port     = 5001
       protocol    = "tcp"
-    }
+    },
+    {
+      from_port   = 8080
+      to_port     = 8080
+      protocol    = "tcp"
+    }    
   ]
   egress_rules        = ["all-all"]
 }
@@ -53,6 +58,7 @@ resource "aws_instance" "jenkins" {
     sudo service docker start
     sudo usermod -a -G docker ec2-user
     sudo git clone https://github.com/todori438/quickbase-demo.git /var/jenkins
+    sudo git checkout playground
     sudo docker build /var/jenkins -t jenkins
     sudo docker run --detach --publish=8080:80 --name=jenkins jenkins   
   EOF
@@ -69,6 +75,7 @@ resource "aws_instance" "jenkins" {
   monitoring              = true
   disable_api_termination = false
   ebs_optimized           = true
+  key_name                = "test1"
 }
 
 resource "aws_instance" "web" {
@@ -103,4 +110,5 @@ resource "aws_instance" "web" {
   monitoring              = true
   disable_api_termination = false
   ebs_optimized           = true
+  key_name                = "test1"
 }
