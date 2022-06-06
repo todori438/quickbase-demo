@@ -58,7 +58,6 @@ resource "aws_instance" "jenkins" {
     sudo service docker start
     sudo usermod -a -G docker ec2-user
     sudo git clone https://github.com/todori438/quickbase-demo.git /var/jenkins
-    sudo git checkout playground
     sudo docker build /var/jenkins -t jenkins
     sudo docker run --detach --publish=8080:80 --name=jenkins jenkins   
   EOF
