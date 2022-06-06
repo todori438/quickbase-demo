@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"dev_ssh_sg","Source":"registry.terraform.io/terraform-aws-modules/security-group/aws","Version":"4.9.0","Dir":".terraform/modules/dev_ssh_sg"},{"Key":"ec2_sg","Source":"registry.terraform.io/terraform-aws-modules/security-group/aws","Version":"4.9.0","Dir":".terraform/modules/ec2_sg"}]}
