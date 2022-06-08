@@ -22,12 +22,7 @@ module "ec2_sg" {
       from_port   = 5001
       to_port     = 5001
       protocol    = "tcp"
-    },
-    {
-      from_port   = 8080
-      to_port     = 8080
-      protocol    = "tcp"
-    }    
+    }
   ]
   egress_rules        = ["all-all"]
 }
